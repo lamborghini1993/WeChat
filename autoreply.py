@@ -17,16 +17,16 @@ KEY = 'ca098ebe818b49df98af997bef29b3b3' #这个key可以直接拿来用
 def get_response(msg):
 	Url = 'http://www.tuling123.com/openapi/api'
 	data = {
-		'key'  : KEY,
-		'info'  : msg,
-		'userid' : 'pth-robot',
+		'key': KEY,
+		'info': msg,
+		'userid': 'pth-robot',
 	}
 	try:
 		postdata = urllib.parse.urlencode(data)
 		postdata = postdata.encode("utf-8")
 		res = urllib.request.urlopen(Url, postdata)
 		sInfo = res.read()
-		dInfo= eval(sInfo)
+		dInfo = eval(sInfo)
 		return dInfo["text"]
 	except:
 		return "肖豪真帅"
@@ -54,3 +54,4 @@ def tuling_reply(msg):
 # 为了让修改程序不用多次扫码,使用热启动
 itchat.auto_login(hotReload=True)
 itchat.run()
+
