@@ -52,6 +52,6 @@ def tuling_reply(msg):
 	return reply or defaultReply
 
 # 为了让修改程序不用多次扫码,使用热启动
-itchat.auto_login(hotReload=True)
+itchat.auto_login(hotReload=True, enableCmdQR=True)
 itchat.run()
 

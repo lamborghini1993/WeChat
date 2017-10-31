@@ -18,3 +18,10 @@
     git init
     git clone git@github.com:lamborghini1993/WeChat.git
 
+### 功能
+1.自动聊天+斗图
+2.群发小助手
+3.检测被那些好友删除/拉黑
+4.电脑监控
+
+- 记录好友信息、关注的公众号
