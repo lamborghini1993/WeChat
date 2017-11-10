@@ -1,0 +1,6 @@
+# 忽略 xxxx/ 文件夹下的所有文件
+mytool/
+
+# 忽略所有的pyc文件
+*.pyc
+itchat.pkl
