@@ -7,3 +7,14 @@
 @Desc:
     微信总控制
 """
+
+from wxcontrol import meun
+
+if "MENU_MGR" not in globals():
+    MENU_MGR = meun.MeunMgr()
+
+
+def get_replay_msg(who):
+    global MENU_MGR
+    reply = MENU_MGR.deal_menu(who)
+    return reply
