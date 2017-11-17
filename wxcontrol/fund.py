@@ -23,20 +23,11 @@ class Fund(object):
     re_time = r'<span class="time">\[(.*?)\]</span>'
     re_zf = r'<span class="zf(.*?)">(.*?)</span>'
     re_title = r'<title>(.*?)</title>'
+    re_name = r'<span class="col_1">(.*?)</span>'
 
-    def __init__(self):
-        self.fundlist = {
-            "xiaohao": ["000311", "001542", "110029"]
-        }
-
-    def start(self):
-        info = self.get_fund_info()
-        print(info)
-
-    def get_fund_info(self):
+    def get_fund_info(self, lstfundid):
         result = []
-        onelist = self.fundlist.get("xiaohao", [])
-        for fundnum in onelist:
+        for fundnum in lstfundid:
             url = self.url + fundnum
             oneresult = self.get_one_info(url)
             result.append(oneresult)
@@ -50,7 +41,7 @@ class Fund(object):
         pattern = re.compile(recomplie)
         match = pattern.search(source)
         if not match:
-            return ""
+            return None
         return match.group(num)
 
     def valid_get_correct(self, *args):
@@ -79,8 +70,13 @@ class Fund(object):
     def get_fund_name(self, fundid):
         url = "http://gu.qq.com/jj" + str(fundid)
         data = pubdefines.get_data_by_url(url)
-        return data
+        try:
+            data = data.decode("utf-8")
+        except:
+            return None
+        name = self.get_re_info(self.re_name, data)
+        return name
 
 
-obj = Fund()
-obj.start()
+if "FUND_OBJ" not in globals():
+    FUND_OBJ = Fund()
