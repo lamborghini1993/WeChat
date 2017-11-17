@@ -11,6 +11,7 @@
 
 import re
 from selenium import webdriver
+from mytool import pubdefines
 
 
 class Fund(object):
@@ -74,6 +75,11 @@ class Fund(object):
                 return "{} [{}] 估值涨幅:{}".format(title, zftime, zf)
             except:
                 pass
+
+    def get_fund_name(self, fundid):
+        url = "http://gu.qq.com/jj" + str(fundid)
+        data = pubdefines.get_data_by_url(url)
+        return data
 
 
 obj = Fund()

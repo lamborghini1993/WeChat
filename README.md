@@ -25,6 +25,9 @@
 4.电脑监控
 5.检测基金定投涨幅信息
     http://fund.10jqka.com.cn/001542/
+    http://gu.qq.com/jj001542
+    http://jingzhi.funds.hexun.com/001542.shtml
+    
     http://fund.10jqka.com.cn/000311/
     http://fund.10jqka.com.cn/110029/
 
