@@ -3,4 +3,5 @@ mytool/
 
 # 忽略所有的pyc文件
 *.pyc
+*.log
 itchat.pkl
