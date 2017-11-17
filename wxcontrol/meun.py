@@ -50,9 +50,10 @@ class MeunMgr(object):
         return reply
 
     def show_my_all_fund(self, who):
+        """显示我所有关注的定投基金"""
         userid = who["FromUserName"]
         if userid not in self.fouc_fund:
-            return "你还没有关注的基金,使用({}, id)添加关注".format(ADD_FUND)
+            return "你还没有关注的定投基金,使用({}, id)添加关注".format(ADD_FUND)
         myfundinfo = self.fouc_fund[userid]
         reply = ""
         for fundid, desc in myfundinfo.items():
@@ -60,6 +61,7 @@ class MeunMgr(object):
         return reply
 
     def add_fund(self, who):
+        """添加关注的定投基金"""
         content = who["Content"]
         userid = who["FromUserName"]
         try:
@@ -70,10 +72,24 @@ class MeunMgr(object):
             self.fouc_fund[userid] = {}
         myfundinfo = self.fouc_fund[userid]
         if fundid in myfundinfo:
-            return "该基金已经关注，请勿重复关注"
+            return "该定投基金已经关注，请勿重复关注"
         fundname = "xx"  # TODO
         myfundinfo[fundid] = fundname
-        return "已关注({} {})基金".format(fundid, fundname)
+        return "已关注({} {})定投基金".format(fundid, fundname)
 
     def delet_fund(self, who):
-        pass
+        """删除已关注的定投基金"""
+        content = who["Content"]
+        userid = who["FromUserName"]
+        try:
+            _, fundid = content.split(" ")
+        except:
+            return None
+        if userid not in self.fouc_fund:
+            return "你还没有关注任何定投基金"
+        myfundinfo = self.fouc_fund[userid]
+        if fundid not in myfundinfo:
+            return "你还没有关注{}定投基金".format(fundid)
+        fundname = myfundinfo[fundid]
+        del myfundinfo[fundid]
+        return "已取消关注({} {})定投基金".format(fundid, fundname)

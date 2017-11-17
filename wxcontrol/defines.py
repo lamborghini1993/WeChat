@@ -22,7 +22,7 @@ MEUN_INFO = {
     OPEN_AUTO_REPLY: "开启微信自动聊天",
     CLOSE_AUTO_REPLY: "关闭微信自动聊天",
 
-    SHOW_MY_ALL_FUND: "显示我所有关注的基金",
-    ADD_FUND: "添加关注的基金({} id)".format(ADD_FUND),
-    DELET_FUND: "删除关注的基金({} id)".format(DELET_FUND),
+    SHOW_MY_ALL_FUND: "显示我所有关注的定投基金",
+    ADD_FUND: "添加关注定投基金：{} id".format(ADD_FUND),
+    DELET_FUND: "取消关注定投基金：{} id".format(DELET_FUND),
 }
