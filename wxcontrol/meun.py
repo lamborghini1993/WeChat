@@ -56,7 +56,7 @@ class MeunMgr(object):
     def deal_menu(self, who):
         reply = None
         content = who["Content"]
-        if content == "showmenu":
+        if content in ("showmenu", "显示菜单"):
             return self.get_menu()
         funnum = content.split(" ")[0]
         func = self.get_func(funnum)
