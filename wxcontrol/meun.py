@@ -66,7 +66,7 @@ class MeunMgr(object):
         userid = who["FromUserName"]
         curstate = self.cur_state.get(userid, 0)
         if curstate == STATE_OPEN_AUTO_REPLY:
-            reply = autoreply.get_response(content)
+            reply = autoreply.get_response(who)
             return reply
         return None
 
